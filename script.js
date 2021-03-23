@@ -7,7 +7,7 @@ const TIME = document.querySelector('.time'),
 // Add Time
 const addZero = n => {
     return ( parseInt(n, 10) < 10 ? '0' : '') + n;
-}
+};
 const showTime = () => {
     const today = new Date();
 
@@ -27,6 +27,21 @@ const showDate = () => {
         month: 'long'
     });
     DATE.innerHTML = `${format}`;
+};
+// Add Greeting
+const showGreeting = () => {
+    let today = new Date();
+    let hour = today.getHours();
+  
+    if (hour < 6) {
+        greeting.textContent = 'Good Night, ';
+    } else if (hour < 12) {
+        greeting.textContent = 'Good Morning, ';
+    } else if (hour < 18){
+        greeting.textContent = 'Good Afternoon, ';
+    } else {
+        greeting.textContent = 'Good Evening, ';
+    }
 };
 // Add Name
 const clearField = e => {
@@ -57,5 +72,6 @@ NAME.addEventListener('keydown', enterBlur);
 document.addEventListener('DOMContentLoaded', () => {
     showTime();
     showDate();
+    showGreeting();
     getName();
 });
