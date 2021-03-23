@@ -17,7 +17,7 @@ const showTime = () => {
 
     TIME.innerHTML = `${addZero(hour)}:${addZero(min)}:${addZero(sec)}`;
     setTimeout(showTime, 1000);
-}
+};
 // Add Date
 const showDate = () => {
     const today = new Date();
@@ -29,19 +29,14 @@ const showDate = () => {
     DATE.innerHTML = `${format}`;
 };
 // Add Greeting
+const dayTime = () => {
+    let hour = new Date().getHours();
+    return hour < 6  ? 'night' :
+           hour < 12 ? 'morning' :
+           hour < 18 ? 'afternoon' : 'evening';
+}
 const showGreeting = () => {
-    let today = new Date();
-    let hour = today.getHours();
-  
-    if (hour < 6) {
-        greeting.textContent = 'Good Night, ';
-    } else if (hour < 12) {
-        greeting.textContent = 'Good Morning, ';
-    } else if (hour < 18){
-        greeting.textContent = 'Good Afternoon, ';
-    } else {
-        greeting.textContent = 'Good Evening, ';
-    }
+    greeting.textContent = `Good ${dayTime()}, `;
 };
 // Add Name
 const clearField = e => {
