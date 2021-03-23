@@ -63,10 +63,36 @@ NAME.addEventListener('click', clearField);
 NAME.addEventListener('blur', blurField);
 NAME.addEventListener('keydown', enterBlur);
 
+// Pick a random num
+const random = (min, max) => {
+    return Math.floor(min + Math.random() * (max + 1 - min));
+}
+// Change BG
+let randomArr = Array.from({length: 24}, () => random(1, 20));
+
+const changeBG = () => {
+    let today = new Date()
+    let hour = today.getHours();
+
+    let img = new Image()
+        base = 'https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/assets/images/',
+        number = addZero(randomArr[hour]),
+        source = `${base}${dayTime()}/${number}.jpg`;
+    
+    img.src = source;
+    img.onload = () => {
+        document.body.style.background = `url(${source})`;
+    };
+
+    let min = today.getMinutes() * 60 * 1000;
+    let sec = today.getSeconds() * 1000;
+    setTimeout(changeBG, 60*60*1000 - min - sec);
+};
 
 document.addEventListener('DOMContentLoaded', () => {
     showTime();
     showDate();
     showGreeting();
     getName();
+    changeBG();
 });
