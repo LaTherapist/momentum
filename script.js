@@ -122,7 +122,7 @@ const nextBG = () => {
     setTimeout(() => NEXT.disabled = false, 1000);
 }
 NEXT.addEventListener('click', nextBG);
-
+// Add Quote
 const loadQuote = async () => {
     let url = 'https://type.fit/api/quotes';
     let result = await fetch(url);

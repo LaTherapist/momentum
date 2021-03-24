@@ -5,7 +5,7 @@
     border: 0;
 }
 :root {
-    --color: #000000;
+    --color: #ffff;
     font-size: 16px;
 }
 body {
@@ -97,6 +97,7 @@ h2 {
     background: rgba(160, 160, 160, 0.7);
     padding: 0.2rem 0.5rem;
     border-radius: 5px 5px;
+    cursor: pointer;
 }
 .quote__author {
     font-size: 0.9rem;
