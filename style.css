@@ -17,6 +17,7 @@ body {
     height: 100vh;
     background-size: cover;
     color: var(--color);
+    transition: background-image 1s ease-in-out;
 }
 h1 {
     margin-bottom: 3rem;
@@ -48,6 +49,7 @@ h2 {
     width: 2rem;
     background-color: transparent;
     cursor: pointer;
+    transition: all .3s ease;
 }
 .next::before, .next::after {
     position: absolute;
@@ -63,4 +65,10 @@ h2 {
   .next::after {
     top: 0rem;
     transform: rotate(-45deg);
+  }
+  .next:hover {
+      transform: scale(1.2);
+  }
+  .next:focus {
+      outline: none;
   }

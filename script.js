@@ -112,8 +112,11 @@ const changeBG = hour => {
 let counter = 1;
 
 const nextBG = () => {
+    NEXT.disabled = true;
     changeBG( getHour + counter);
     counter++;
+    
+    setTimeout(() => NEXT.disabled = false, 1000);
 }
 NEXT.addEventListener('click', nextBG);
 
