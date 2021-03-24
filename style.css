@@ -6,6 +6,7 @@
 }
 :root {
     --color: #000000;
+    font-size: 16px;
 }
 body {
     font-family: 'Quicksand', sans-serif;
@@ -72,3 +73,32 @@ h2 {
   .next:focus {
       outline: none;
   }
+
+/* ---------------- */
+
+.quote__wrapper {
+    position: absolute;
+    bottom: 2%;
+    padding: 1rem 2rem;
+    border-radius: .6rem;
+    background-color: rgba(173, 173, 173, .4);
+}
+.quote {
+    font-size: 1.1rem;
+    padding-bottom: 0.8rem;
+}
+.quote__floor {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 .5rem;
+}
+.quote__btn {
+    background: rgba(160, 160, 160, 0.7);
+    padding: 0.2rem 0.5rem;
+    border-radius: 5px 5px;
+}
+.quote__author {
+    font-size: 0.9rem;
+    font-style: italic;
+}

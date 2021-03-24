@@ -3,8 +3,11 @@ const TIME = document.querySelector('.time'),
   FOCUS = document.querySelector('.focus'),
   NAME = document.querySelector('.name'),
   NEXT = document.querySelector('.next'),
-  GREETING = document.querySelector('.greeting');
-
+  GREETING = document.querySelector('.greeting'),
+  QUOTE = document.querySelector('.quote'),
+  quoteBTN = document.querySelector('.quote__btn'),
+  quoteAuthor = document.querySelector('.quote__author');
+  
 // Return Hours
 const getHour = new Date().getHours(); 
 // Add Time
@@ -120,6 +123,27 @@ const nextBG = () => {
 }
 NEXT.addEventListener('click', nextBG);
 
+const loadQuote = async () => {
+    let url = 'https://type.fit/api/quotes';
+    let result = await fetch(url);
+    let data = await result.json();
+
+    localStorage.setItem('quotes', JSON.stringify(data));
+};
+const getQuote = async () => {
+    if (localStorage.getItem('quotes')) {
+        let data = JSON.parse(localStorage.getItem('quotes'));
+        let randomQuote = random(0, data.length - 1);
+        
+        QUOTE.textContent = `\"${data[randomQuote].text}\"`;
+        quoteAuthor.textContent = data[randomQuote].author;
+    } else {
+        await loadQuote();
+        getQuote();
+    }
+};
+quoteBTN.addEventListener('click', getQuote);
+
 document.addEventListener('DOMContentLoaded', () => {
     showTime();
     showDate();
@@ -127,4 +151,5 @@ document.addEventListener('DOMContentLoaded', () => {
     getName();
     getFocus();
     changeBG(getHour);
+    getQuote();
 });
