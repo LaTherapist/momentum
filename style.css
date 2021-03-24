@@ -2,6 +2,10 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    border: 0;
+}
+:root {
+    --color: #000000;
 }
 body {
     font-family: 'Quicksand', sans-serif;
@@ -12,7 +16,7 @@ body {
     text-align: center;
     height: 100vh;
     background-size: cover;
-    color: #000000;
+    color: var(--color);
 }
 h1 {
     margin-bottom: 3rem;
@@ -32,3 +36,31 @@ h2 {
 .date {
     font-size: 1.5rem;
 }
+/* Change BG button */
+.next__wrapper {
+    position: absolute; 
+    top: 50%;
+    right: 5%;
+}
+.next {
+    position: relative;
+    height: 3.5rem;
+    width: 2rem;
+    background-color: transparent;
+    cursor: pointer;
+}
+.next::before, .next::after {
+    position: absolute;
+    height: 2rem;
+    width: 0.2rem;
+    background-color: var(--color);
+    content: "";
+  }
+  .next::before {
+    top: 1.3rem;
+    transform: rotate(45deg);
+  }
+  .next::after {
+    top: 0rem;
+    transform: rotate(-45deg);
+  }
