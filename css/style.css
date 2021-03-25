@@ -19,13 +19,31 @@ body {
     background-size: cover;
     color: var(--color);
     transition: background-image 1s ease-in-out;
+    padding: 1rem;
+}
+@media (max-height: 600px) {
+    body {
+       height: auto;     
+    }
 }
 h1 {
     margin-bottom: 3rem;
 }
+@media (max-width: 500px) {
+    h1 {
+        font-size: 1.7rem;
+        margin-bottom: 1.5rem;        
+        margin-top: .9rem;        
+    }
+}
 h2 {
     margin-bottom: 0.5rem;
     opacity: 0.9;
+}
+@media (max-width: 500px) {
+    h2 {
+        font-size: 1.2rem;       
+    }
 }
 .time {
     font-size: 8rem;
@@ -33,6 +51,11 @@ h2 {
 @media (max-width: 700px) {
     .time {
         font-size: 6rem;
+    }
+}
+@media (max-width: 500px) {
+    .time {
+        font-size: 4.5rem;
     }
 }
 .date {
@@ -44,6 +67,13 @@ h2 {
     top: 50%;
     right: 5%;
 }
+@media (max-width: 540px) {
+    .next__wrapper {
+       position: relative;
+       top: 0.5rem;
+       right: 0;
+    }
+}
 .next {
     position: relative;
     height: 3.5rem;
@@ -52,13 +82,18 @@ h2 {
     cursor: pointer;
     transition: all .3s ease;
 }
+@media (max-width: 540px) {
+    .next {
+       height: 2rem;
+    }
+}
 .next::before, .next::after {
     position: absolute;
     height: 2rem;
     width: 0.2rem;
     background-color: var(--color);
     content: "";
-  }
+}
 .next::before {
     top: 1.3rem;
     transform: rotate(45deg);
@@ -66,6 +101,14 @@ h2 {
 .next::after {
     top: 0rem;
     transform: rotate(-45deg);
+}
+@media (max-width: 540px) {
+    .next::before, .next::after {
+       height: 1.5rem;
+    }
+    .next::before {
+        top: 0.95rem;
+    }
 }
 .next:hover {
     transform: scale(1.2);
@@ -78,9 +121,15 @@ h2 {
     position: relative;
     top: 5.5rem;
     padding: 1rem 2rem;
+    max-width: 90%;
     border-radius: .6rem;
     background-color: rgba(173, 173, 173, .4);
 }
+@media (max-width: 660px) {
+    .quote__wrapper {
+        top: 2rem;
+    }
+ }
 .quote {
     font-size: 1.1rem;
     padding-bottom: 0.8rem;
@@ -110,6 +159,14 @@ h2 {
     border-radius: .6rem;
     text-align: left;
     background-color: rgba(173, 173, 173, .4);
+}
+@media (max-width: 660px) {
+   .weather__wrapper {
+       position: relative;
+       top: 0;
+       left: 0;
+       margin-bottom: 1.5rem;
+   }
 }
 .city {
     font-size: 1.2rem;
